@@ -55,7 +55,7 @@ public class Promise<T>: Promiselike<T> {
         var alreadyRan = true
         shouldFulfill.perform {
             alreadyRan = false
-            printo("FULFILL \(self.sn)")
+            //printo("FULFILL \(self.sn)")
             self._value = value
             self.dischargeHandlers()
         }
@@ -94,4 +94,4 @@ public class MappedPromise<T, U>: Promiselike<U> {
     }
 }
 
-}
+

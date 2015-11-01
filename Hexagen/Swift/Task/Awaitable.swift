@@ -25,7 +25,7 @@ public protocol Awaitable {
 
 public protocol SendAwaitable {
     typealias SendType
-    func _awaitSend(SendType)
+    func _awaitSend(_: SendType)
 }
 
 public prefix func <- <T: Awaitable> (source: T) -> T.ValueType {

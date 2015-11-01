@@ -613,7 +613,9 @@
 		86D0E8D71A975406005E77BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Alice Atlas";
 				TargetAttributes = {
 					860F6DBE1AA136E200335793 = {
@@ -895,11 +897,12 @@
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen;
 				PRODUCT_NAME = Hexagen;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -924,11 +927,12 @@
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen;
 				PRODUCT_NAME = Hexagen;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -946,6 +950,7 @@
 				);
 				INFOPLIST_FILE = HexagenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen.tests;
 				PRODUCT_NAME = HexagenTests;
 				SDKROOT = iphoneos;
 			};
@@ -958,6 +963,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = HexagenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen.tests;
 				PRODUCT_NAME = HexagenTests;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -983,6 +989,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1046,6 +1053,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1060,10 +1068,11 @@
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen;
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Debug;
 		};
@@ -1071,6 +1080,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1085,10 +1095,11 @@
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen;
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -1106,6 +1117,7 @@
 				);
 				INFOPLIST_FILE = HexagenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen.tests;
 				PRODUCT_NAME = HexagenTests;
 			};
 			name = Debug;
@@ -1120,6 +1132,7 @@
 				);
 				INFOPLIST_FILE = HexagenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.atlas.hexagen.tests;
 				PRODUCT_NAME = HexagenTests;
 			};
 			name = Release;

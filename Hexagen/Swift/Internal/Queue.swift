@@ -53,7 +53,7 @@ internal class SynchronizedQueue<T>: _SyncTarget {
             var out: [T] = []
             out.reserveCapacity(count)
             var node = front
-            for i in 0..<count {
+            for _ in 0..<count {
                 out.append(node!.val)
                 node = node!.next
             }

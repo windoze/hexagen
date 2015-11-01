@@ -24,7 +24,9 @@ public final class AsyncGen<OutType, ReturnType>: Async<ReturnType> {
     }
 }
 
-extension AsyncGen: SequenceType {
+extension AsyncGen: LazySequenceType {
+    public typealias Element=OutType;
+    public typealias Generator=Subscription<OutType>;
     public func generate() -> Subscription<OutType> {
         let gen = feed.generate()
         if !started {
@@ -33,11 +35,11 @@ extension AsyncGen: SequenceType {
         return gen
     }
     
-    public func map<T>(fn: OutType -> T) -> LazySequence<MapSequenceView<AsyncGen, T>> {
-        return lazy(self).map(fn)
+    public func map<T>(fn: OutType -> T) -> LazySequence<LazyMapSequence<AsyncGen, T>> {
+        return lazy.map(fn)
     }
     
-    public func filter(fn: OutType -> Bool) -> LazySequence<FilterSequenceView<AsyncGen>> {
-        return lazy(self).filter(fn)
+    public func filter(fn: OutType -> Bool) -> LazySequence<LazyFilterSequence<AsyncGen>> {
+        return lazy.filter(fn)
     }
 }

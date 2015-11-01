@@ -12,14 +12,17 @@ extension Feed: SequenceType {
     }
 }
 
-public struct Subscription<T>: SequenceType, GeneratorType {
+public struct Subscription<T>: LazySequenceType, GeneratorType {
+    public typealias Element=T;
+    public typealias Generator=Subscription<T>
+    
     private var head: RecurringPromise<T>?
     
     public func generate() -> Subscription<T> {
         return self
     }
     
-    public mutating func next() -> T? {
+    public mutating func next() -> Element? {
         if let promise = head {
             let value = <-promise
             head = promise.successor
@@ -28,11 +31,11 @@ public struct Subscription<T>: SequenceType, GeneratorType {
         return nil
     }
     
-    public func map<U>(fn: T -> U) -> LazySequence<MapSequenceView<Subscription, U>> {
-        return lazy(self).map(fn)
+    public func map<U>(fn: T -> U) -> LazySequence<LazyMapSequence<Subscription, U>> {
+        return lazy.map(fn)
     }
     
-    public func filter(fn: T -> Bool) -> LazySequence<FilterSequenceView<Subscription>> {
-        return lazy(self).filter(fn)
+    public func filter(fn: T -> Bool) -> LazySequence<LazyFilterSequence<Subscription>> {
+        return lazy.filter(fn)
     }
 }

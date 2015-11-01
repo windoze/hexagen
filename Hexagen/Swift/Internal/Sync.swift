@@ -22,15 +22,15 @@ internal func synchronized(obj: AnyObject, @noescape body: Void -> Void) {
 }
 
 public class _SyncTarget {
-    internal func sync<T>(_ real: Bool = true, @noescape _ body: Void -> T) -> T {
+    internal func sync<T>(real: Bool = true, @noescape _ body: Void -> T) -> T {
         if real {
-            return synchronized(self, body)
+            return synchronized(self, body: body)
         } else {
             return body()
         }
     }
     
-    internal func sync(_ real: Bool = true, @noescape _ body: Void -> Void) {
+    internal func sync(real: Bool = true, @noescape _ body: Void -> Void) {
         let _: Void? = sync(real) { body(); return nil }
     }
 }
@@ -63,11 +63,11 @@ internal struct ThreadSafeLazy<T> {
     
     var value: T {
         mutating get {
-            shouldSetup.perform(setup)
+            shouldSetup.perform({ self.setup() })
             return _value!
         }
         set {
-            shouldSetup.perform(setupNoInit)
+            shouldSetup.perform({ self.setupNoInit() })
             _value = newValue
         }
     }
